@@ -18,7 +18,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.After
-import org.junit.Assume.assumeFalse
 import org.junit.Before
 import org.junit.Test
 import java.util.concurrent.ExecutorService
@@ -91,7 +90,6 @@ class DeferredTypefaceTest {
         assertThat(resolved).isNotNull()
         resolved as Typeface
 
-        assumeFalse("https://issuetracker.google.com/issues/156853883", Build.VERSION.SDK_INT == 29)
         if (Build.VERSION.SDK_INT >= 28)
             assertThat(resolved.weight).isEqualTo(300)
         assertThat(resolved.style).isEqualTo(Typeface.ITALIC)
@@ -123,7 +121,6 @@ class DeferredTypefaceTest {
 
         val resolved = (result as TestFontCallback.Result.Success).typeface
 
-        assumeFalse("https://issuetracker.google.com/issues/156853883", Build.VERSION.SDK_INT == 29)
         if (Build.VERSION.SDK_INT >= 28)
             assertThat(resolved.weight).isEqualTo(300)
         assertThat(resolved.style).isEqualTo(Typeface.ITALIC)
@@ -159,7 +156,6 @@ class DeferredTypefaceTest {
 
         val resolved = (result as TestFontCallback.Result.Success).typeface
 
-        assumeFalse("https://issuetracker.google.com/issues/156853883", Build.VERSION.SDK_INT == 29)
         if (Build.VERSION.SDK_INT >= 28)
             assertThat(resolved.weight).isEqualTo(300)
         assertThat(resolved.style).isEqualTo(Typeface.ITALIC)
